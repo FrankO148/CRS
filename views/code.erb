@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Codigo enviado</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript"  src="bootstrap.min.js"></script>
+    <!--<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>-->
+
+  </head>
+
+  <body>
+
+    <div class="container">
+    <%= if flash[:notice]
+        "<div class='alert alert-danger'> #{flash[:notice]} </div>"
+     end%>
+
+      <form class="form-signin" role="form" method="post" action=/code>
+        <h2 class="form-signin-heading">Introduzca el código que se le ha enviado al celular</h2>
+	<a href="send_code" id="h" class="btn btn-link"   >No me ha llegado el código dentro de los 5 minutos</a> 
+	<a href="#" id="help" class="btn btn-link" data-toggle="popover" title= "Codigo" data-content=""  >¿Cómo funciona esto?</a> 
+        <input type="text" class="form-control" name="code"  placeholder="Código " required autofocus>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+     <script type="text/javascript">
+	var image='<img src="images/ejemplo.jpeg">';
+	$(document).ready(function(){
+    		$("#help").popover({
+        		placement : 'rigth',
+			content: image,
+			html: true
+    		});
+	});
+    </script>		
+     
+  </body>
+</html>

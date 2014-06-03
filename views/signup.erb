@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Sign up CloudFile</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="container">
+      <%= if @user1
+		"hola #{@user1.name}" 
+	end	%>	
+      <%= if flash[:notice]
+        	"<div class='alert alert-danger'> #{flash[:notice]} </div>"
+         end%>	
+
+      <form class="form-signin" role="form" method="post" action=/signup>
+        <h2 class="form-signin-heading">Nuevo Usuario</h2>
+        <input type="text" class="form-control" name="name"  placeholder="Nombre" required autofocus>
+        <input type="text" class="form-control" name="lastname"  placeholder="Apellido" required>
+        <input type="email" class="form-control" name="mail"  placeholder="Email" required>
+        <input type="text" class="form-control" name="cel"  placeholder="Celular Formato: 2615000000" required>
+        <input type="password" class="form-control" name="password"  placeholder="Password (6 caracteres min)" required>
+        <input type="password" class="form-control" name="password_confirmation"  placeholder="Repite Password" required>
+	Ingrese una clave secreta compuesta por 3 letras distintas ejemplo: PEZ (Use sólo letras mayúsculas)	
+	<input type="password" class="form-control" name="key"  placeholder="Ejemplo: PEZ" required>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarme</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+  </body>
+</html>

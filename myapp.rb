@@ -94,10 +94,6 @@ post '/signup' do
 	if session[:state]
 		redirect to('/')
 	else
-		hash_pass=Digest::SHA2.new << params[:password]
-		hash_pass_conf=Digest::SHA2.new << params[:password_confirmation]	
-                params[:password]=hash_pass.to_s
-		params[:password_confirmation]=hash_pass_conf.to_s
 		user1=User.new(params)
 		if user1.valid?
 			if(user1.save())

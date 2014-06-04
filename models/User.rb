@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 			record.errors.add attr , 'Debe tener 3 letras diferentes'
 		end
 	end
+	before_save :hash_pass
 
  	
 	def self.generate_matrix (id)
@@ -101,6 +102,11 @@ class User < ActiveRecord::Base
 			'message[content]'=>"#{message}"
 		})
 		return code[:number_secret]
-	end	
+	end
+	def hash_pass
+		require 'digest/sha2'
+		self.password= (Digest::SHA512.new << self.password).to_s
+	end
+	
 end
 
